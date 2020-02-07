@@ -18,7 +18,10 @@ def create_app(config_name):
     login_manager.init_app(app)
 
     #Blueprints registration
-    from .authentication import auth_bp
+    from .authentication import auth as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
+
+    from .main import main as main_bp
+    app.register_blueprint(main_bp, url_prefix='/blog')
 
     return app

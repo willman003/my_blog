@@ -1,0 +1,75 @@
+{%extends 'layout/master.html'%}
+
+{%block head%}
+    {{super()}}
+    <style>
+        
+        #dangnhap {
+            position: relative;
+            /* left: 100px; */
+            top: 20vh;
+            width: 40%;
+            padding: 20px 20px;
+            border-radius: 10px;
+        }
+
+        form a:link {
+            color: #26490D;
+            /* text-decoration: none; */
+        }
+
+        form a:hover {
+            color: #94D466
+        }
+    </style>
+
+{%endblock%}
+    
+{%block content%}
+    <div class="container" id="dangnhap" style="color: #0D2249;background-color: white;">
+        <h2 class="text-center"><b>Đăng nhập</b></h2>
+        <hr class="col-md-12" style="border-top: 1px solid white; width: 100%;">
+        <form method='POST'>
+            {{form_dang_nhap.hidden_tag()}}
+            <div class="form-group">
+                {{form_dang_nhap.ten_dang_nhap.label(for='ten_dang_nhap')}}
+                {{form_dang_nhap.ten_dang_nhap(class='form-control')}}
+
+            </div>
+            <div class="form-group">
+                {{form_dang_nhap.password.label(for='password')}}
+                {{form_dang_nhap.password(class='form-control')}}
+
+            </div>
+            <div class="form-row">
+                <div class="col-md-2">
+                    <small>
+                        {{form_dang_nhap.remember_me.label()}}
+    
+    
+                    </small>
+
+                </div>
+                
+                <div class="col">
+                    {{form_dang_nhap.remember_me()}}
+
+
+                </div>
+
+            </div>
+            <div class="form-group text-center">
+                <small>Chưa có tài khoản ? <a href="{{url_for('auth_bp.register')}}"> Đăng ký </a></small>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12 text-center">
+                    {{form_dang_nhap.submit(class='btn btn-success')}}
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+{%endblock%}
+   

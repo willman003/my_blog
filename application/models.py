@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, AnonymousUserMixin
-from . import login_manager, db
+from . import login_manager, db, create_app
 
 class Role(db.Model):
     __tablename__ = 'roles'
@@ -36,3 +36,4 @@ class User(UserMixin,db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+

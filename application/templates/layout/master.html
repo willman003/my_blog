@@ -10,19 +10,101 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+
     <script src="https://kit.fontawesome.com/87d1385e4d.js" crossorigin="anonymous"></script>
 
     <title> {%block title%}{%endblock%}Mae Cosmetics</title>
+    <style>
+        .first-link-group {
+            position: relative;
+            left: 15%;
+            display: inline;
+            
+        }
+
+        .second-link-group {
+            float: right;
+            position: relative;
+            right: 15%;
+
+        }
+
+        nav a {
+            display: inline;
+            margin-left: 30px;
+        }
+
+        nav a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #94D466;
+
+        }
+
+        #Poster{
+            background-color: #94D466;
+        }
+
+        #footer{
+            position: absolute;
+            top: 150%;
+        }
+    </style>
     {%endblock%}
 </head>
 
 <body style="background-color: #CDEBB7;">
 
+    <nav style="background-color: #26490D; color: white; height: 30px;">
+        <div class="container-fluid">
+            <div class="first-link-group">
+                <a href="#">
+                    Trang chủ
+                </a>
+                <a href="#">
+                    Vài dòng tâm sự
+                </a>
+                <a href="#">
+                    IT
+                </a>
+            </div>
+            <div class="second-link-group">
+                <a href="#">
+                    About me
+                </a>
+                <a href="#">
+                    Liên hệ
+                </a>
+            </div>
+
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid" id="Poster">
+        <div class="container">
+          <h1 class="display-4">Fluid jumbotron</h1>
+          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+
     {%block content%}
     {%endblock%}
 
-    
+    <div class="container-fluid" id="footer">
+        <div class="row">
+            <div class="col-sm-12">
+                <hr>
+            </div>
+            <div class="col-sm-12 text-center">
+               Created by © 2020 ekraor
+            </div>
+        </div>
+
+    </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

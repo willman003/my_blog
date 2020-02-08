@@ -1,4 +1,5 @@
-from application import create_app
+from application import create_app, db
+from application.models import *
 from os import environ
 
 app = create_app('development')
@@ -10,3 +11,4 @@ if __name__ == "__main__":
     except ValueError:
         PORT = 5555
     app.run(HOST, PORT)
+

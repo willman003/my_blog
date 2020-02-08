@@ -13,11 +13,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-<<<<<<< HEAD
         'sqlite:///' + os.path.join(basedir, 'application/data/my_blog.db')
-=======
-        'sqlite:///' + os.path.join(basedir, 'application/du_lieu/data-dev.db')
->>>>>>> Complete master.html, adding main, creating DB Migration
 
 class TestingConfig(Config):
     TESTING = True

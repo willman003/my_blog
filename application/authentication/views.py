@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, redirect, url_for, request
 from flask_login import login_user, logout_user
 
 from . import auth
@@ -6,6 +6,7 @@ from .forms import *
 from ..models import *
 
 @auth.route('/login', methods =['GET','POST'])
+
 def login():
     thong_bao = ''
     form_dang_nhap = Form_dang_nhap()
@@ -24,7 +25,22 @@ def login():
 @auth.route('/register',methods=['GET','POST'])
 def register():
     form = Form_dang_ky()
-    return render_template('auth/Register.html', form = form)
+    thong_bao = ''
+    if form.validate_on_submit():
+        if not form.kiem_tra_ten_dang_nhap():
+            thong_bao = 'Tên đăng nhập đã tồn tại.'
+        elif not form.kiem_tra_email():
+            thong_bao = 'Email đã tồn tại.'
+        else:
+            user = User()
+            user.email = form.email.data
+            user.ten_dang_nhap = form.ten_dang_nhap.data
+            user.password = form.password.data
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('auth.login'))        
+
+    return render_template('auth/Register.html', form = form, thong_bao = thong_bao)
 
 @auth.route('/logout',methods=['GET','POST'])
 def logout():

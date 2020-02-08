@@ -12,3 +12,6 @@ if __name__ == "__main__":
         PORT = 5555
     app.run(HOST, PORT)
 
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db,Role=Role)

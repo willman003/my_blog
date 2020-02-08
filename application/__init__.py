@@ -17,21 +17,9 @@ def create_app(config_name):
     db.init_app(app)
     login_manager.init_app(app)
 
-<<<<<<< HEAD
     #Blueprints registration
     from .authentication import auth as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
-=======
-    with app.app_context():
-        
-        #Blueprints registration
-        from .authentication import auth as auth_bp
-        app.register_blueprint(auth_bp, url_prefix='/auth')
-
-        from .main import main as main_bp
-        app.register_blueprint(main_bp, url_prefix='/blog')
-       
->>>>>>> Complete master.html, adding main, creating DB Migration
 
     from .main import main as main_bp
     app.register_blueprint(main_bp, url_prefix='/blog')

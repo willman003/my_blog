@@ -64,14 +64,6 @@ class User(UserMixin,db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(128))
 
-    def __init__(self, **kwargs):
-        super(User,self).__init__(**kwargs)
-        if self.role is None:
-            if self.ten_dang_nhap == 'admin':
-                self.role = Role.query.filter_by(name='Admin').first()
-            if self.role is None:
-                self.role = Role.query.filter_by(default=True).first()
-    
     def can(self,perm):
         return self.role is not None and self.role.has_permission(perm)
     

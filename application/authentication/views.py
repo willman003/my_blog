@@ -36,6 +36,10 @@ def register():
             user.email = form.email.data
             user.ten_dang_nhap = form.ten_dang_nhap.data
             user.password = form.password.data
+            if user.ten_dang_nhap == 'admin':
+                user.role = Role.query.filter_by(name="Admin").first()
+            else:
+                user.role = Role.query.filter_by(default=True).first()
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('auth.login'))        

@@ -22,6 +22,9 @@ def create_app(config_name):
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
     from .main import main as main_bp
-    app.register_blueprint(main_bp, url_prefix='/blog')
+    app.register_blueprint(main_bp)
+
+    from .blog import blog as blog_bp
+    app.register_blueprint(blog_bp, url_prefix='/blog')
 
     return app

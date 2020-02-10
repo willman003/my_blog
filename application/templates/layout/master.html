@@ -12,7 +12,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/87d1385e4d.js" crossorigin="anonymous"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400&display=swap&subset=vietnamese" rel="stylesheet">
     <title> {%block title%}{%endblock%}Mae Cosmetics</title>
     <style>
         .first-link-group {
@@ -28,6 +28,10 @@
             right: 15%;
 
         }
+        nav a:visited {
+            color:  white;
+            text-decoration: none;
+        }
 
         nav a {
             display: inline;
@@ -41,56 +45,71 @@
 
         nav a:hover {
             color: #94D466;
-
+            text-decoration: none;
+            
         }
 
         
-        #footer{
-            position: absolute;
-            top: 150%;
+
+        nav a:active{
+            color: white;
+            text-decoration: none;
         }
+
+        .disabled {
+            color: currentColor;
+            cursor: not-allowed;
+            opacity: 0.5;
+            text-decoration: none;
+        }
+        
     </style>
     {%endblock%}
 </head>
 
-<body style="background-color: #CDEBB7;">
+<body style="background-color: #CDEBB7; font-family: 'Dosis', sans-serif;">
 
     <nav style="background-color: #061F06; color: white; height: 30px;">
         <div class="container-fluid">
             <div class="first-link-group">
-                <a href="#">
-                    Trang chủ
+                <a href="{{url_for('main.index')}}">
+                    Home
                 </a>
-                <a href="#">
-                    Vài dòng tâm sự
+                <a href="{{url_for('blog.blog_page')}}">
+                    Writing
                 </a>
-                <a href="#">
+                <a href="#" class="disabled" aria-disabled="true">
                     IT
                 </a>
             </div>
             <div class="second-link-group">
-                <a href="#">
+                <a href="{{url_for('main.index')}}">
                     About me
                 </a>
-                <a href="#">
-                    Liên hệ
+                <a href="{{url_for('main.contact')}}">
+                    Contact me
                 </a>
             </div>
 
         </div>
     </nav>
 
-    {%block content%}
-    {%endblock%}
+    <div>
+        {%block content%}
+        {%endblock%}
+
+    </div>
+    
 
     <div class="container-fluid" id="footer">
-        <div class="row">
+        <div class="row" style = "margin-bottom: 20px;">
             <div class="col-sm-12">
                 <hr>
             </div>
             <div class="col-sm-12 text-center">
                Created by © 2020 ekraor
             </div>
+            
         </div>
 
     </div>

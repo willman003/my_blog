@@ -1,0 +1,47 @@
+{%extends 'layout/master.html'%}
+
+{%block head%}
+
+    {{super()}}
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+        }
+    </style>
+
+{%endblock%}
+
+{%block content%}
+
+<img src="{{url_for('static',filename='images/banner.jpg')}}" class="img-fluid">
+
+<div class="container" style="margin-top: 60px;">
+    <div class="row">
+        <div class="col-sm-2 text-center">
+            <p>
+                <img src="{{url_for('static',filename='images/hope_icon.png')}}" class="img-fluid center">
+            </p>
+            <p>09/02/2020</p>
+        </div>
+        <div class="col-sm-10">
+            <p>Tiêu đề</p>
+
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis similique dolorum odit quisquam
+                repellat soluta laboriosam incidunt natus perferendis, corrupti, blanditiis quis iste adipisci quasi.
+                Porro velit delectus esse. Enim! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, magni
+                commodi voluptates doloribus odio animi at repellendus? Minus sequi optio, qui possimus corporis enim et
+                ullam maxime eligendi praesentium natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quaerat sint impedit blanditiis ullam soluta repellat vero nobis recusandae similique facere unde, aut
+                nam harum quibusdam, ea accusantium molestiae, quasi ex! Lorem ipsum dolor sit, amet consectetur
+                adipisicing elit. Architecto reiciendis officiis exercitationem! Ipsam maiores atque alias expedita
+                molestias cupiditate vero ad quaerat. Ipsa numquam dolores unde vel eveniet nesciunt deserunt.</p>
+
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

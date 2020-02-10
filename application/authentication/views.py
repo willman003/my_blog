@@ -49,4 +49,4 @@ def register():
 @auth.route('/logout',methods=['GET','POST'])
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('blog.blog_page'))

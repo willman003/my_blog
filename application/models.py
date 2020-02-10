@@ -1,5 +1,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, AnonymousUserMixin
+
+
 from . import login_manager, db, create_app
 
 class Permission:
@@ -90,6 +92,17 @@ class AnonymousUser(AnonymousUserMixin):
     
     def is_administrator(self):
         return False
+
+class Post(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    date = db.Column(db.DateTime)
+    feeling = db.Column(db.String(10))
+    text = db.Column(db.Text)
+
+    def __repr__(self):
+        return '<Title : %r>' % (self.title)
 
 login_manager.anonymous_user = AnonymousUser
 

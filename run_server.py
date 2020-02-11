@@ -2,7 +2,7 @@ from application import create_app, db
 from application.models import *
 from os import environ
 
-app = create_app('production')
+app = create_app('development')
 
 if __name__ == "__main__":
     HOST = environ.get('SERVER_HOST','localhost')

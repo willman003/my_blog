@@ -10,6 +10,33 @@
             margin-right: auto;
             width: 30%;
         }
+        a:visited {
+            color:  #061F06;
+            text-decoration: none;
+        }
+
+        a {
+            display: inline;
+            margin-left: 30px;
+        }
+
+        a:link {
+            color: #061F06;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #94D466;
+            text-decoration: none;
+            
+        }
+
+        a:active{
+            color: #061F06;
+            text-decoration: none;
+        }
+
+        
     </style>
 
 {%endblock%}
@@ -33,6 +60,38 @@
 
         </div>
     </div>
+</div>
+
+<div class="container" style="margin-top: 10px;">
+    <div class="row">
+        {%if post_number == 0%}
+        <div class="col-sm-12 text-center">
+            <a href="{{url_for('blog.blog_page',post_number = post_number + 1)}}">
+                <i class="fas fa-angle-double-right"></i> Next Post
+            </a>
+
+        </div>
+        {%elif post_number == (list_post|length-1)%}
+        <div class="col-sm-12 text-center">
+            <a href="{{url_for('blog.blog_page',post_number = post_number - 1)}}">
+                <i class="fas fa-angle-double-left"></i> Previous Post
+            </a>
+
+        </div>
+        {%elif post_number != 0 and post_number != (list_post|length-1) %}
+        <div class="col-sm-6 text-center">
+            <a href="{{url_for('blog.blog_page',post_number = post_number - 1)}}">
+                <i class="fas fa-angle-double-left"></i> Previous Post
+            </a>
+        </div>
+        <div class="col-sm-6 text-center">
+            <a href="{{url_for('blog.blog_page',post_number = post_number + 1)}}">
+                <i class="fas fa-angle-double-right"></i> Next Post
+            </a>
+        </div>
+        {%endif%}
+    </div>
+
 </div>
 
 
